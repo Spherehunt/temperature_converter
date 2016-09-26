@@ -1,9 +1,15 @@
 require 'json'
+require 'net/http'
+require 'uri'
 
 class TempConverter
 
   def initialize temperature
     @temperature = temperature
+  end
+
+  def read_url
+    input = Net::HTTP.get(URI.parse("http://labict.be/software-engineering/temperature/api/temperature/fake")).to_f
   end
 
   def to_text
@@ -18,8 +24,12 @@ class TempConverter
   end
 
   def to_html
-    html_temperature = <div><div>@temperature.to_s + " °C"</div><div>(@temperature * 9/5 + 32).to_s + " °F"</div><div>(@temperature + 273.15).to_s + " K"</div></div>
-    puts html_temperature.html_safe
+    puts "<div>"
+    puts "<div>"+@temperature.to_s + " °C"+"</div>"
+    puts "<div>"+(@temperature * 9/5 + 32).to_s + " °F"+"</div>"
+    puts "<div>"+(@temperature + 273.15).to_s + " K"+"</div>"
+    puts "</div>"
+
   end
 
 end

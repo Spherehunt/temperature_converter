@@ -1,7 +1,6 @@
 require './lib/temp_convert.rb'
-require 'net/http'
-require 'uri'
-
+# require 'net/http'
+# require 'uri'
 selector = ARGV.first.to_f
 
 if selector == 1
@@ -16,12 +15,12 @@ end
 
 if selector == 3
   #URL input
-  input = Net::HTTP.get(URI.parse("http://labict.be/software-engineering/temperature/api/temperature/fake")).to_f
+  # input = Net::HTTP.get(URI.parse("http://labict.be/software-engineering/temperature/api/temperature/fake")).to_f
+  input = TempConverter.read_url
 end
-
 
 temp_convert = TempConverter.new input
 
-#puts temp_convert.to_text
-#puts temp_convert.to_json
+puts temp_convert.to_text
+puts temp_convert.to_json
 puts temp_convert.to_html
