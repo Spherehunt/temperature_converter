@@ -1,26 +1,18 @@
-require './lib/temp_convert.rb'
-# require 'net/http'
-# require 'uri'
-selector = ARGV.first.to_f
+require './lib/temperature_converter.rb'
 
-if selector == 1
-  #Command line input
-  input = ARGV[1].to_f
-end
+converter = TemperatureConverter.new
 
-if selector == 2
-  #Text file input
-  input = File.open('sensor.txt').read.to_f
-end
+converter.commandline_temperature ARGV
+puts converter.to_text
+puts converter.to_json
+puts converter.to_html
 
-if selector == 3
-  #URL input
-  # input = Net::HTTP.get(URI.parse("http://labict.be/software-engineering/temperature/api/temperature/fake")).to_f
-  input = TempConverter.read_url
-end
+converter.file_temperature "sensor.txt"
+puts converter.to_text
+puts converter.to_json
+puts converter.to_html
 
-temp_convert = TempConverter.new input
-
-puts temp_convert.to_text
-puts temp_convert.to_json
-puts temp_convert.to_html
+converter.url_temperature "http://labict.be/software-engineering/temperature/api/temperature/fake"
+puts converter.to_text
+puts converter.to_json
+puts converter.to_html
