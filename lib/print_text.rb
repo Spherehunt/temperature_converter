@@ -2,7 +2,7 @@ require "./lib/temperature"
 
 class PrintText
 
-attr_reader :temperature
+  attr_reader :temperature
 
   def self.print
     puts "Gegeven: " + Temperature.celsius.to_s + " °C"

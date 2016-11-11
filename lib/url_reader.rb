@@ -3,14 +3,14 @@ require 'uri'
 
 class URLReader
 
-  attr_accessor :temperature
+  attr_reader :temperature
 
-    def initialize(temperature)
-      @temperature = temperature
-    end
+  def self.initialize(temperature)
+    $temperature = temperature
+  end
 
-    def self.read url
-      @temperature = Net::HTTP.get(URI.parse(url)).to_f
-    end
+  def self.read url
+    $temperature = Net::HTTP.get(URI.parse(url))
+  end
 
 end

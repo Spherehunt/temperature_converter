@@ -4,6 +4,7 @@ converter = TemperatureConverter.new
 
 puts "Commandline temperatuur: \n\n"
 converter.commandline_temperature ARGV
+#puts "#{$temperature}" Test of lezen lukt
 puts converter.to_text
 puts converter.to_json
 puts converter.to_html

@@ -1,14 +1,14 @@
 
 class FileReader
 
-attr_accessor :temperature
+  attr_reader :temperature
 
-  def initialize(temperature)
-    @temperature = temperature
+  def self.initialize(temperature)
+    $temperature = temperature
   end
 
   def self.read file
-    @temperature = File.open(file).read.to_f
+    $temperature = File.open(file).read
   end
 
 end

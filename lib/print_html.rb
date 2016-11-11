@@ -2,7 +2,7 @@ require "./lib/temperature"
 
 class PrintHtml
 
-attr_reader :temperature
+  attr_reader :temperature
 
   def self.print
     puts "<div>"

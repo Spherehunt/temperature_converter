@@ -1,14 +1,14 @@
 
 class CommandlineReader
 
-  attr_accessor :temperature
+  attr_reader :temperature
 
-  def initialize(temperature)
-    @temperature = temperature
+  def self.initialize(temperature)
+    $temperature = temperature
   end
 
   def self.read argument
-    @temperature = argument.first.to_f
+    $temperature = argument.first
   end
 
 end

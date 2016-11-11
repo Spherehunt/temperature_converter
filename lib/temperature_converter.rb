@@ -11,34 +11,34 @@ require "./lib/mqtt_reader"
 
 class TemperatureConverter
 
-#Methoden behouden maar laten linken naar nieuwe single purpose classes.
+  #Methoden behouden maar laten linken naar nieuwe single purpose classes.
 
   def commandline_temperature argument
-      CommandlineReader.read(argument)
+    CommandlineReader.read(argument)
   end
 
   def file_temperature file
-      FileReader.read(file)
+    FileReader.read(file)
   end
 
   def url_temperature url
-      URLReader.read(url)
+    URLReader.read(url)
   end
 
   # def mqtt_temperature
-        #nada
+  #nada
   # end
 
   def to_text
-      PrintText.print
+    PrintText.print
   end
 
   def to_json
-      PrintJson.print
+    PrintJson.print
   end
 
   def to_html
-      PrintHtml.print
+    PrintHtml.print
   end
 
 end
