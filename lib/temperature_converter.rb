@@ -1,41 +1,44 @@
-require 'json'
-require 'net/http'
-require 'uri'
+require "./lib/temperature"
+require "./lib/print_json"
+require "./lib/print_html"
+require "./lib/print_text"
+require "./lib/url_reader"
+require "./lib/file_reader"
+require "./lib/commandline_reader"
+require "./lib/mqtt_reader"
+
+#Behouden als link tussen app die niet veranderd is en nieuwe temperature en andere single purpose classes
 
 class TemperatureConverter
 
-  KELVIN = 273.15
-  FAHRENHEIT = 9.0/5.0
+#Methoden behouden maar laten linken naar nieuwe single purpose classes.
 
   def commandline_temperature argument
-    @temperature = argument.first.to_f
+      CommandlineReader.read(argument)
   end
 
   def file_temperature file
-    @temperature = File.open(file).read.to_f
+      FileReader.read(file)
   end
 
   def url_temperature url
-    @temperature = Net::HTTP.get(URI.parse(url)).to_f
+      URLReader.read(url)
   end
 
+  # def mqtt_temperature
+        #nada
+  # end
+
   def to_text
-    puts "Gegeven: " + @temperature.to_s + " °C"
-    puts (@temperature).to_s + " °C = " + ((@temperature * FAHRENHEIT) + 32).to_s + " °F"
-    puts (@temperature).to_s + " °C = " + (@temperature + KELVIN).to_s + " K"
+      PrintText.print
   end
 
   def to_json
-    json_temperature = {:Celsius => @temperature, :Fahrenheit => (@temperature * FAHRENHEIT + 32).to_s, :Kelvin => (@temperature + KELVIN).to_s}
-    puts JSON.pretty_generate(json_temperature)
+      PrintJson.print
   end
 
   def to_html
-    puts "<div>"
-    puts "<div>"+@temperature.to_s + " °C"+"</div>"
-    puts "<div>"+(@temperature * FAHRENHEIT + 32).to_s + " °F"+"</div>"
-    puts "<div>"+(@temperature + KELVIN).to_s + " K"+"</div>"
-    puts "</div>"
+      PrintHtml.print
   end
 
 end
