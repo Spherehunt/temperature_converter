@@ -15,7 +15,7 @@ class MQTTReader
       # If you pass a block to the get method, then it will loop
       c.get(sensor_id) do |topic,message|
         obj = JSON.parse("#{message}")
-        temp = obj['fields']['temperature'].to_f
+        $temperature = obj['fields']['temperature'].to_f
         PrintText.print()
         puts '.....................................................................'
       end
