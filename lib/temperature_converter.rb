@@ -25,9 +25,9 @@ class TemperatureConverter
     URLReader.read(url)
   end
 
-  # def mqtt_temperature
-  #nada
-  # end
+  def mqtt_reader(ttn_host, port, username, password, sensor_id)
+    MQTTReader.read(ttn_host, port, username, password, sensor_id)
+  end
 
   def to_text
     PrintText.print
