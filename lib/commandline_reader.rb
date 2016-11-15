@@ -8,7 +8,7 @@ class CommandlineReader
   end
 
   def self.read argument
-    $temperature = argument.first
+    $temperature = argument
   end
 
 end
