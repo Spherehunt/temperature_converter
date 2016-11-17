@@ -1,4 +1,3 @@
-require "./lib/print_text"
 require 'rubygems'
 require 'mqtt'
 require 'json'
@@ -15,7 +14,9 @@ class MQTTReader
     :password => password) do |c|
       c.get(sensor_id) do |topic,message|
         obj = JSON.parse("#{message}")
-        $temperature = obj['fields']['temperature'].to_f
+        $temperature = obj['fields']['temperature']
+        #Only listen until temperature is printed once
+        break if message[0,1] != nil
       end
     end
   end
