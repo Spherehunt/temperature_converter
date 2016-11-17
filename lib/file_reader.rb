@@ -4,12 +4,12 @@ class FileReader
   attr_reader :temperature
 
   def initialize
-    @temperature
+    $temperature
   end
 
   def read file
-    @temperature = File.open(file).read
-    #puts @temperature
+    $temperature = File.open(file).read
+    #puts $temperature
   end
 
 end

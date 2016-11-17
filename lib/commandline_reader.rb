@@ -4,11 +4,11 @@ class CommandlineReader
   attr_reader :temperature
 
   def initialize temperature
-    @temperature = temperature
+    $temperature = temperature
   end
 
   def read
-    @temperature
+    $temperature
   end
 
 end

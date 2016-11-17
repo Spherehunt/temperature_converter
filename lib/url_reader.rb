@@ -6,11 +6,11 @@ class URLReader
   attr_reader :temperature
 
   def initialize
-    @temperature
+    $temperature
   end
 
   def read url
-    @temperature = Net::HTTP.get(URI.parse(url))
+    $temperature = Net::HTTP.get(URI.parse(url))
     #puts @temperature
   end
 

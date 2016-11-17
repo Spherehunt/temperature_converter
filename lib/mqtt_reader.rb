@@ -15,7 +15,7 @@ class MQTTReader
     :password => password) do |c|
       c.get(sensor_id) do |topic,message|
         obj = JSON.parse("#{message}")
-        @temperature = obj['fields']['temperature'].to_f
+        $temperature = obj['fields']['temperature'].to_f
       end
     end
   end

@@ -9,15 +9,15 @@ class Temperature
   attr_reader :temperature
 
   def celsius
-    @temperature.to_f
+    $temperature.to_f
   end
 
   def to_fahrenheit
-    (@temperature.to_f * FAHRENHEIT_SLOPE) + FAHRENHEIT_OFFSET
+    ($temperature.to_f * FAHRENHEIT_SLOPE) + FAHRENHEIT_OFFSET
   end
 
   def to_kelvin
-    @temperature.to_f + KELVIN
+    $temperature.to_f + KELVIN
   end
 
 end
