@@ -15,24 +15,35 @@ OptionParser.new do |opts|
 
   opts.on("-t temperature", "--temperature temperature", "Input temperature") do |temperature|
     converter.commandline_temperature temperature
-    puts converter.to_text
   end
 
   opts.on("-f file", "--file file", "Input path to temperature file") do |file|
     converter.file_temperature file
-    puts converter.to_text
   end
 
   opts.on("-u url", "--url url", "Input URL to temperature") do |url|
     converter.url_temperature url
-    puts converter.to_text
   end
 
   opts.on("-m", "--mqtt", "Input MQTT stuff") do |mqtt|
     converter.mqtt_reader(ttn_host, port, username, password, sensor_id)
   end
 
+  opts.on("--text", "Outputs as text") do |text|
+    puts converter.to_text
+  end
+
+  opts.on("--html", "Outputs as html") do |html|
+    puts converter.to_html
+  end
+
+  opts.on("--json", "Outputs as json") do |json|
+    puts converter.to_json
+  end
+
 end.parse!
+
+# OLD app.rb below
 
 # puts "Commandline temperatuur: \n\n"
 # converter.commandline_temperature ARGV

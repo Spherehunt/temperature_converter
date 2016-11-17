@@ -5,12 +5,13 @@ class URLReader
 
   attr_reader :temperature
 
-  def self.initialize(temperature)
-    $temperature = temperature
+  def initialize
+    @temperature
   end
 
-  def self.read url
-    $temperature = Net::HTTP.get(URI.parse(url))
+  def read url
+    @temperature = Net::HTTP.get(URI.parse(url))
+    #puts @temperature
   end
 
 end

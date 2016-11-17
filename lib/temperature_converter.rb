@@ -14,31 +14,38 @@ class TemperatureConverter
   #Methoden behouden maar laten linken naar nieuwe single purpose classes.
 
   def commandline_temperature argument
-    CommandlineReader.read(argument)
+    cmdreader = CommandlineReader.new argument
+    cmdreader.read
   end
 
   def file_temperature file
-    FileReader.read(file)
+    freader = FileReader.new
+    freader.read(file)
   end
 
   def url_temperature url
-    URLReader.read(url)
+    ureader = URLReader.new
+    ureader.read(url)
   end
 
   def mqtt_reader(ttn_host, port, username, password, sensor_id)
-    MQTTReader.read(ttn_host, port, username, password, sensor_id)
+    mreader = MQTTReader.new
+    mreader.read(ttn_host, port, username, password, sensor_id)
   end
 
   def to_text
-    PrintText.print
+    tprint = PrintText.new
+    tprint.print
   end
 
   def to_json
-    PrintJson.print
+    jprint = PrintJson.new
+    jprint.print
   end
 
   def to_html
-    PrintHtml.print
+    hprint = PrintHtml.new
+    hprint.print
   end
 
 end
