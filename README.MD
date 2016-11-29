@@ -11,9 +11,13 @@
 
 This app can be used to convert temperatures from either commandline input, a file , a URL or from a sensor using the MQTT protocol.
 
+The input should be in degrees Celsius, and the output will be in degrees Celsius, Fahrenheit and Kelvin
+
 ## 2: Installation
 
-> gem install temperature_converter_jonasd
+```powershell
+ gem install temperature_converter_jonasd
+```
 
 ## 3: Usage
 
@@ -35,7 +39,9 @@ There are some options required for use:
 
 To take the input from a textfile and output as html, the command would be:
 
-> temp-conv -f sensor.txt --html
+```powershell
+temp-conv -f sensor.txt --html
+```
 
 So generally the syntax is: temp-conv [source] [output format]
 
