@@ -1,4 +1,4 @@
-require "./lib/temperature"
+require "temperature"
 
 class PrintText
 

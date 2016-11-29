@@ -26,14 +26,14 @@ Once the gem is installed, you can use the temp-conv command to use it.
 There are some options required for use:
 
 | Option        | Description    
-| ------------- |:-------------:|
-| -t           | input is text from commandline. |
-| -f      | input is a textfile (note: in the current version the file is should be located in the project folder. )      |
-| -u | input is taken from a URL.      |
-| -m           | input is taken from a sensor using the MQTT protocol (note: in the current version, the sensor information is hardcoded in the app.) |
-| --text      | output is displayed as simple text.      |
-| --html | output is displayed in html.      |
-| --json | output is displayed in json format.      |
+| ------------- |:-------------:                                                                                                                       |
+| -t            | input is text from commandline.                                                                                                      |
+| -f            | input is a textfile (note: in the current version the file is should be located in the project folder. )                             |
+| -u            | input is taken from a URL.                                                                                                           |
+| -m            | input is taken from a sensor using the MQTT protocol (note: in the current version, the sensor information is hardcoded in the app.) |
+| --text        | output is displayed as simple text.                                                                                                  |
+| --html        | output is displayed in html.                                                                                                         |
+| --json        | output is displayed in json format.                                                                                                  |
 
 #### Usage example
 

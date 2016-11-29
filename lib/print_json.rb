@@ -1,5 +1,5 @@
 require 'json'
-require "./lib/temperature"
+require "temperature"
 
 class PrintJson
 

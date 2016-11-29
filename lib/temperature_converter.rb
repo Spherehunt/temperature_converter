@@ -1,11 +1,11 @@
-require "./lib/temperature"
-require "./lib/print_json"
-require "./lib/print_html"
-require "./lib/print_text"
-require "./lib/url_reader"
-require "./lib/file_reader"
-require "./lib/commandline_reader"
-require "./lib/mqtt_reader"
+require "temperature"
+require "print_json"
+require "print_html"
+require "print_text"
+require "url_reader"
+require "file_reader"
+require "commandline_reader"
+require "mqtt_reader"
 
 #Behouden als link tussen app die niet veranderd is en nieuwe temperature en andere single purpose classes
 
