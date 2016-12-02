@@ -16,7 +16,8 @@ class MQTTReader
         obj = JSON.parse("#{message}")
         $temperature = obj['fields']['temperature']
         #Only listen until temperature is printed once
-        break if message[0,1] != nil
+        c.disconnect()
+        # break if message[0,1] != nil
       end
     end
   end
